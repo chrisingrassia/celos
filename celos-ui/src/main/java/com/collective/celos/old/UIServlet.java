@@ -300,7 +300,7 @@ public class UIServlet extends HttpServlet {
     }
 
     private static String printWorkflowURL(UIConfiguration conf, SlotState state) {
-        return conf.getHueURL().toString() + "/list_oozie_workflow/" + state.getExternalID();
+        return conf.getHueURL().toString() + state.getExternalID();
     }
 
     private Map<WorkflowID, WorkflowStatus> fetchStatuses(CelosClient client, Set<WorkflowID> workflows, ScheduledTime start, ScheduledTime end) throws Exception {
