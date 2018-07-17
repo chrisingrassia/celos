@@ -1,5 +1,6 @@
 plugins {
   id 'com.github.johnrengelman.shadow' version '2.0.1'
+  id 'com.palantir.docker' version '0.9.2'
 }
 
 apply plugin: 'maven'
@@ -45,6 +46,14 @@ jar {
         attributes("Main-Class": mainClassName)
     }
     zip64 = true
+}
+
+docker {
+    name = 'celos-ci'
+    tags 'latest', project.version
+    dockerfile 'Dockerfile'
+    dependsOn tasks.jar
+    buildArgs([jarfile: tasks.jar.archiveName])
 }
 
 def repoUser = System.getenv("CELOS_NEXUS_USER");
