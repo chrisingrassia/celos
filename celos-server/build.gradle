@@ -38,7 +38,9 @@ dependencies {
     compile("org.apache.hadoop:hadoop-common:3.0.0-cdh6.1.0") { exclude group: 'javax.servlet', module: 'servlet-api' }
     compile("org.apache.hadoop:hadoop-hdfs-client:3.0.0-cdh6.1.0") { exclude group: 'javax.servlet', module: 'servlet-api' }
     compile("org.apache.hadoop:hadoop-aws:3.0.0-cdh6.1.0") { exclude group: 'javax.servlet', module: 'servlet-api' }
-    compile("org.apache.oozie:oozie-client:5.0.0-cdh6.1.0")
+    compile("org.apache.oozie:oozie-client:5.0.0-cdh6.1.0") {
+        exclude module: 'jms'
+    }
     compile("org.quartz-scheduler:quartz:2.1.1")
     compile("org.postgresql:postgresql:42.2.5")
 
