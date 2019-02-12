@@ -59,6 +59,7 @@ public class JettyServer {
         context.setInitParameter("org.eclipse.jetty.servlet.Default.dirAllowed", "false");
 
         context.setExtractWAR(false);
+        context.setResourceBase(url.toString());
 
         server.setHandler(context);
         server.start();
